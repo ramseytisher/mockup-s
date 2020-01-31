@@ -34,6 +34,9 @@ module.exports = {
         fonts: [
           {
             family: `Ubuntu`
+          },
+          {
+            family: `Bangers`
           }
         ]
       }
