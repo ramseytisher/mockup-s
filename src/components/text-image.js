@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Grid, Heading, Paragraph ,ResponsiveContext } from 'grommet';
+import { Box, Grid, Paragraph ,ResponsiveContext } from 'grommet';
 import Img from "gatsby-image";
 import styled from 'styled-components';
 

@@ -1,9 +1,7 @@
-import React, { useState, useContext } from "react"
+import React, { useState } from "react"
 import { useStaticQuery, graphql, Link } from "gatsby"
 
 import styled from "styled-components"
-
-import Navigation from "./navigation"
 
 import {
   Grommet,

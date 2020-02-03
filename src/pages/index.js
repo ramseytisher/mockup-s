@@ -1,8 +1,7 @@
 import React from "react"
-import { Link, useStaticQuery } from "gatsby"
+import { useStaticQuery } from "gatsby"
 
 import Layout from "../components/layout"
-import Image from "../components/image"
 import SEO from "../components/seo"
 
 import TextImage from "../components/text-image"
@@ -29,17 +28,17 @@ export default () => {
       <SEO title="Home" />
       <Box height="large" justify="center">
         <TextImage
-          text="asdfasdfasdasf"
+          text="We make it simple!"
           image={image.placeholderImage.childImageSharp.fluid}
         />
       </Box>
+      <Mission />
       <Box flex="grow" pad="medium" gap="medium" direction="row-responsive">
         <TextBlock
           title="Our This ... "
           background="light-2"
           text="Some long form of text that would go here ..."
         />
-        <Mission />
         <TextBlock
           title="Our What ???"
           background="light-2"
