@@ -1,48 +1,64 @@
-import React from 'react'
-import { Box, Grid, Paragraph ,ResponsiveContext } from 'grommet';
-import Img from "gatsby-image";
-import styled from 'styled-components';
+import React from "react"
+import { Box, Grid, Paragraph, ResponsiveContext } from "grommet"
+import Img from "gatsby-image"
+import styled from "styled-components"
 
 const RoundedImageLeft = styled(Img)`
   border-radius: 50px 0px 0px 50px;
-`;
+  max-height: 25vw;
+  margin-top: 10px;
+`
 
 const RoundedImageRight = styled(Img)`
   border-radius: 0px 50px 50px 0px;
-`;
+  max-height: 25vw;
+  margin-top: 10px;
+`
 
-export default ({text, image, textSize, flip, dark}) => (
+export default ({ text, image, textSize, flip, dark }) => (
   <ResponsiveContext.Consumer>
-    { size => (
+    {size => (
       <Box background={dark && "dark-1"}>
         <Grid
           fill
-          columns={{ 
-            count: (size === 'small') ? 1 : 2 ,
-            size: "auto"
+          columns={{
+            count: size === "small" ? 1 : 2,
+            size: "auto",
           }}
         >
-        { flip ? (
-          <>
-            <Box justify="center">
-              {(size === 'small') ? <Img fluid={image} /> : <RoundedImageRight fluid={image} /> }
-            </Box>
-            <Box align="center" justify="center" pad={size}>
-              <Paragraph textAlign="center" size={textSize ? textSize : size}>{text}</Paragraph>
-            </Box>
-          </>
-        ) : (
-          <>
-            <Box align="center" justify="center" pad={size}>
-              <Paragraph textAlign="center" size={textSize ? textSize : size}>{text}</Paragraph>
-            </Box>
-            <Box justify="center">
-              {(size === 'small') ? <Img fluid={image} /> : <RoundedImageLeft fluid={image} /> }
-            </Box>
-          </>
-        )}  
+          {flip ? (
+            <>
+              <Box justify="center">
+                {size === "small" ? (
+                  <Img fluid={image} />
+                ) : (
+                  <RoundedImageRight fluid={image} />
+                )}
+              </Box>
+              <Box align="center" justify="center" pad={size}>
+                <Paragraph textAlign="center">
+                  {text}
+                </Paragraph>
+              </Box>
+            </>
+          ) : (
+            <>
+              <Box align="center" justify="center" pad={size}>
+                <Paragraph textAlign="center" size="large">
+                  {text}
+                </Paragraph>
+              </Box>
+              <Box justify="center">
+                {size === "small" ? (
+                  <Img fluid={image} />
+                ) : (
+                  <RoundedImageLeft fluid={image} />
+                )}
+              </Box>
+            </>
+          )}
         </Grid>
-        </Box>
+      </Box>
     )}
   </ResponsiveContext.Consumer>
 )

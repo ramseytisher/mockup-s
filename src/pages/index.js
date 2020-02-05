@@ -1,5 +1,6 @@
 import React from "react"
-import { useStaticQuery } from "gatsby"
+import { useStaticQuery, Link } from "gatsby"
+import styled from "styled-components"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -7,15 +8,26 @@ import SEO from "../components/seo"
 import TextImage from "../components/text-image"
 import TextBlock from "../components/text-block"
 import Mission from "../components/mission"
+import HeroStack from "../components/hero-stack"
 
-import { Box } from "grommet"
+import { Box, Stack, Button } from "grommet"
+
+const SiteLink = styled(Link)`
+  font-family: "Bangers";
+  text-decoration: none;
+  color: gray;
+
+  &:hover {
+    font-size: 2rem;
+  }
+`
 
 export default () => {
   const image = useStaticQuery(graphql`
     query {
-      placeholderImage: file(relativePath: { eq: "gatsby-astronaut.png" }) {
+      home: file(relativePath: { eq: "layer-boxes.png" }) {
         childImageSharp {
-          fluid(maxWidth: 600) {
+          fluid(maxWidth: 800) {
             ...GatsbyImageSharpFluid
           }
         }
@@ -26,23 +38,28 @@ export default () => {
   return (
     <Layout>
       <SEO title="Home" />
-      <Box height="large" justify="center">
-        <TextImage
-          text="We make it simple!"
-          image={image.placeholderImage.childImageSharp.fluid}
-        />
-      </Box>
-      <Mission />
-      <Box flex="grow" pad="medium" gap="medium" direction="row-responsive">
+      <HeroStack
+        image={image.home.childImageSharp.fluid}
+        text="We make it simple"
+      />
+      <Box flex="grow" pad="small" gap="medium" direction="row-responsive">
         <TextBlock
           title="Our This ... "
-          background="light-2"
+          background="dark-2"
           text="Some long form of text that would go here ..."
+          link="/services"
+          linkText="Our Services"
         />
+        <Box align="center">
+            <Mission />
+            <SiteLink to="/about">More about us</SiteLink>
+        </Box>
         <TextBlock
           title="Our What ???"
-          background="light-2"
+          background="dark-2"
           text="Some long form of text that would go here ..."
+          link="/blog"
+          linkText="Our Blog"
         />
       </Box>
     </Layout>

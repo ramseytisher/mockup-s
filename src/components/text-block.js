@@ -1,11 +1,18 @@
-import React from 'react'
+import React from "react"
+import { Link } from "gatsby"
 
-import { Box, Heading, Text } from 'grommet'
+import { Box, Heading, Text, Button } from "grommet"
 
-export default ({title, text, background}) => (
-    <Box background={background} pad="large" round="xsmall" elevation="medium" >
-        <Heading margin="none" level={3}>{title}</Heading>
-        <Text>{text}</Text>
-    </Box>
-
+export default ({ title, text, background, link, linkText }) => (
+  <Box background={background} pad="medium" align="center" justify="evenly" round="xsmall" elevation="medium">
+    <Heading margin="none" level={3}>
+      {title}
+    </Heading>
+    <Text>{text}</Text>
+    {link && (
+      <Link to={link}>
+        <Button margin="small" label={linkText} />
+      </Link>
+    )}
+  </Box>
 )

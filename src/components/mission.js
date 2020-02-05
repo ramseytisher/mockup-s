@@ -4,7 +4,7 @@ import { Paragraph, Text } from 'grommet';
 import styled from 'styled-components';
 
 const Mission = styled(Paragraph)`
-  font-family: 'Bangers';
+  font-family: 'Ubuntu';
   font-size: 2rem;
   line-height: 1.2;
 `;

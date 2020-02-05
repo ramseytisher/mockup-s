@@ -2,14 +2,19 @@ import React, { useState } from "react"
 import { useStaticQuery, graphql, Link } from "gatsby"
 
 import styled from "styled-components"
+import Sitemap from "./sitemap"
 
 import {
   Grommet,
   ResponsiveContext,
   Button,
   Box,
+  Grid,
   Heading,
+  Header,
   Collapsible,
+  Main,
+  Footer,
 } from "grommet"
 import { Menu, Close } from "grommet-icons"
 
@@ -51,36 +56,59 @@ export default ({ children }) => {
     }
   `)
 
-  const [showNav, setShowNav] = useState(false)
+  const [showSidebar, setShowSidebar] = useState(false)
 
   return (
     <Grommet theme={theme} full>
       <ResponsiveContext.Consumer>
         {size => (
-          <Box fill>
-            <Box
-              tag="header"
-              direction="row"
-              align="center"
-              justify="between"
-              background="light-1"
-              pad={{ left: "medium", right: "small", vertical: "small" }}
-              elevation="small"
-              style={{ zIndex: "1" }}
+          <Box overflow="hidden">
+            <Grid
+              rows={["auto", "auto","flex", "auto"]}
+              columns={["auto", "flex"]}
+              areas={[
+                ["header", "header"],
+                ["main", "sidebar"],
+                ["footer", "footer"],
+              ]}
             >
-              <NavHeading to="/">
-                <Heading level="2" margin="none" color="dark-1">
-                  {data.site.siteMetadata.title}
-                </Heading>
-              </NavHeading>
-
-              {size === "small" ? (
-                <Button
-                  icon={showNav ? <Close /> : <Menu />}
-                  onClick={() => setShowNav(!showNav)}
-                />
-              ) : (
-                <Box direction="row" gap="medium">
+              <Box
+                gridArea="header"
+                direction="row"
+                align="center"
+                justify="between"
+                pad={{ horizontal: "medium", vertical: "small" }}
+              >
+                <NavHeading to="/">
+                  <Heading level="2" margin="none" color="dark-1">
+                    {data.site.siteMetadata.title}
+                  </Heading>
+                </NavHeading>
+                {size === "small" ? (
+                  <Button
+                    icon={showSidebar ? <Close /> : <Menu />}
+                    onClick={() => setShowSidebar(!showSidebar)}
+                  />
+                ) : (
+                  <Box direction="row" gap="medium">
+                    <NavLink to="/services">Services</NavLink>
+                    <NavLink to="/blog">Blog</NavLink>
+                    <NavLink to="/projects">Projects</NavLink>
+                    <NavLink to="/about">About</NavLink>
+                    <NavLink to="/contact">Contact</NavLink>
+                  </Box>
+                )}
+              </Box>
+              {showSidebar && (
+                <Box
+                  gridArea="sidebar"
+                  gap="large"
+                  pad="small"
+                  width="small"
+                  style={{ zIndex: 100 }}
+                  background="light-2"
+                  align="center"
+                >
                   <NavLink to="/services">Services</NavLink>
                   <NavLink to="/blog">Blog</NavLink>
                   <NavLink to="/projects">Projects</NavLink>
@@ -88,23 +116,13 @@ export default ({ children }) => {
                   <NavLink to="/contact">Contact</NavLink>
                 </Box>
               )}
-            </Box>
-            <Box direction="row" flex overflow={{ horizontal: "hidden" }}>
-              <Box flex align="center" justify="center">
+              <Box gridArea="main" flex="grow">
                 {children}
               </Box>
-              {size === "small" && (
-                <Collapsible direction="horizontal" open={showNav}>
-                  <Box gap="large" pad="large" background="light-3" fill>
-                    <NavLink to="/services">Services</NavLink>
-                    <NavLink to="/blog">Blog</NavLink>
-                    <NavLink to="/projects">Projects</NavLink>
-                    <NavLink to="/about">About</NavLink>
-                    <NavLink to="/contact">Contact</NavLink>
-                  </Box>
-                </Collapsible>
-              )}
-            </Box>
+              <Box gridArea="footer">
+                <Sitemap />
+              </Box>
+            </Grid>
           </Box>
         )}
       </ResponsiveContext.Consumer>
