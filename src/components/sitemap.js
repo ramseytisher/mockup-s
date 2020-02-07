@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
-import { Box, Button, Text, Footer } from "grommet"
+import { Box, Button, Footer } from "grommet"
 
 import { Twitter, Instagram, Github } from "grommet-icons"
 

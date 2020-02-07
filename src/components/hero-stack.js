@@ -1,5 +1,5 @@
 import React from "react"
-import { Heading, Stack, Box, Button } from "grommet"
+import { Heading, Stack, Box } from "grommet"
 import Img from "gatsby-image"
 import styled from "styled-components"
 

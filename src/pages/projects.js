@@ -4,9 +4,6 @@ import { useStaticQuery } from "gatsby"
 
 import Layout from "../components/layout"
 
-import TextImage from "../components/text-image"
-import TextBlock from "../components/text-block"
-import Mission from "../components/mission"
 import HeroStack from "../components/hero-stack"
 
 import { Box, Button } from "grommet"

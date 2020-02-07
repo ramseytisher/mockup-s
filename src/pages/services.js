@@ -1,12 +1,12 @@
 import React from "react"
-import { useStaticQuery } from "gatsby"
+import { useStaticQuery, Link } from "gatsby"
 
 import SEO from "../components/seo"
 import Layout from "../components/layout"
 import HeroStack from "../components/hero-stack"
 import ServiceCard from "../components/service-card"
 
-import { Box, Grid, Heading, Text } from "grommet"
+import { Box, Button, Heading, Text } from "grommet"
 
 export default () => {
   const image = useStaticQuery(graphql`
@@ -25,52 +25,63 @@ export default () => {
       <SEO title="Our Services" />
 
       <Layout>
-          <HeroStack
+        <HeroStack
+          image={image.services.childImageSharp.fluid}
+          text={
+            <Box align="center" gap="small" pad="small">
+              <Heading level={1} margin="none" size="large">
+                Our Services
+              </Heading>
+              <Text>Some more informaiton</Text>
+              <Link to="/contact">
+                <Button primary size="large" label="Contact Us" color="accent-1"></Button>
+              </Link>
+            </Box>
+          }
+        />
+        <Box
+          direction="row-responsive"
+          flex="grow"
+          wrap
+          margin="small"
+          justify="center"
+        >
+          <ServiceCard
+            title="Title"
+            text="text"
             image={image.services.childImageSharp.fluid}
-            text="Our services"
           />
-          <Box align="center" gap="small" pad="small">
-            <Heading level={3} margin="none">Some awesome heading</Heading>
-            <Text>Some more informaiton</Text>
-          </Box>
-
-          <Box direction="row-responsive" flex="grow" wrap margin="small" justify="center">
-            <ServiceCard
-              title="Title"
-              text="text"
-              image={image.services.childImageSharp.fluid}
-            />
-            <ServiceCard
-              title="Title"
-              text="text"
-              image={image.services.childImageSharp.fluid}
-            />
-            <ServiceCard
-              title="Title"
-              text="text"
-              image={image.services.childImageSharp.fluid}
-            />
-            <ServiceCard
-              title="Title"
-              text="text"
-              image={image.services.childImageSharp.fluid}
-            />
-            <ServiceCard
-              title="Title"
-              text="text"
-              image={image.services.childImageSharp.fluid}
-            />
-            <ServiceCard
-              title="Title"
-              text="text"
-              image={image.services.childImageSharp.fluid}
-            />
-            <ServiceCard
-              title="Title"
-              text="text"
-              image={image.services.childImageSharp.fluid}
-            />
-          </Box>
+          <ServiceCard
+            title="Title"
+            text="text"
+            image={image.services.childImageSharp.fluid}
+          />
+          <ServiceCard
+            title="Title"
+            text="text"
+            image={image.services.childImageSharp.fluid}
+          />
+          <ServiceCard
+            title="Title"
+            text="text"
+            image={image.services.childImageSharp.fluid}
+          />
+          <ServiceCard
+            title="Title"
+            text="text"
+            image={image.services.childImageSharp.fluid}
+          />
+          <ServiceCard
+            title="Title"
+            text="text"
+            image={image.services.childImageSharp.fluid}
+          />
+          <ServiceCard
+            title="Title"
+            text="text"
+            image={image.services.childImageSharp.fluid}
+          />
+        </Box>
       </Layout>
     </>
   )

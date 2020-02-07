@@ -5,12 +5,11 @@ import styled from "styled-components"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-import TextImage from "../components/text-image"
 import TextBlock from "../components/text-block"
 import Mission from "../components/mission"
 import HeroStack from "../components/hero-stack"
 
-import { Box, Stack, Button } from "grommet"
+import { Box } from "grommet"
 
 const SiteLink = styled(Link)`
   font-family: "Bangers";
@@ -42,7 +41,7 @@ export default () => {
         image={image.home.childImageSharp.fluid}
         text="We make it simple"
       />
-      <Box flex="grow" pad="small" gap="medium" direction="row-responsive">
+      <Box flex="grow" pad="small" gap="medium" justify="center" direction="row-responsive">
         <TextBlock
           title="Our This ... "
           background="dark-2"

@@ -10,11 +10,7 @@ import {
   Button,
   Box,
   Grid,
-  Heading,
-  Header,
-  Collapsible,
-  Main,
-  Footer,
+  Heading
 } from "grommet"
 import { Menu, Close } from "grommet-icons"
 

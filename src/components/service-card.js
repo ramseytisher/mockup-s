@@ -14,23 +14,14 @@ const ServiceBox = styled(Box)`
   );
 `
 
-const ServiceStack = styled(Stack)`
-  background: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 0.9136029411764706) 0%,
-    rgba(95, 94, 98, 0.8099614845938375) 26%,
-    rgba(255, 255, 255, 0) 100%
-  );
-`
-
 const ServiceImage = styled(Img)`
   height: 30vw;
   width: 400px;
 `
 
 const SmallImage = styled(Img)`
-  height: 20vw;
-  width: 200px;
+  height: 100px;
+  width: 100px;
 `
 
 export default ({ title, text, image }) => (
@@ -40,7 +31,7 @@ export default ({ title, text, image }) => (
         {size === "small" ? (
           <Box align="center" direction="row" elevation="small" margin="small">
             <SmallImage fluid={image} />
-            <Box pad="small">
+            <Box pad="medium">
               <Heading level={3} margin="none">
                 {title}
               </Heading>
