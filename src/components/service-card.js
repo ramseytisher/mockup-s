@@ -27,28 +27,32 @@ const SmallImage = styled(Img)`
 export default ({ title, text, image }) => (
   <ResponsiveContext.Consumer>
     {size => (
-      <Box margin="small">
-        {size === "small" ? (
-          <Box align="center" direction="row" elevation="small" margin="small">
-            <SmallImage fluid={image} />
-            <Box pad="medium">
-              <Heading level={3} margin="none">
-                {title}
-              </Heading>
-              <Text>{text}</Text>
-            </Box>
-          </Box>
-        ) : (
-          <Stack elevation="small" anchor="top">
-            <ServiceImage fluid={image} />
-            <ServiceBox pad="small" gap="small" align="center">
-              <Heading level={2} margin="none" color="light-1">
-                {title}
-              </Heading>
-              <Text color="light-1">{text}</Text>
-            </ServiceBox>
-          </Stack>
-        )}
+      // <Box margin="small">
+      //   {size === "small" ? (
+      //     <Box align="center" direction="row" elevation="small" margin="small">
+      //       <SmallImage fluid={image} />
+      //       <Box pad="medium">
+      //         <Heading level={3} margin="none">
+      //           {title}
+      //         </Heading>
+      //         <Text>{text}</Text>
+      //       </Box>
+      //     </Box>
+      //   ) : (
+      //     <Stack elevation="small" anchor="top">
+      //       <ServiceImage fluid={image} />
+      //       <ServiceBox pad="small" gap="small" align="center">
+      //         <Heading level={2} margin="none" color="light-1">
+      //           {title}
+      //         </Heading>
+      //         <Text color="light-1">{text}</Text>
+      //       </ServiceBox>
+      //     </Stack>
+      //   )}
+      // </Box>
+      <Box width="medium" pad="medium">
+        <Heading level={2}>{title}</Heading>
+        <Text>{text}</Text>
       </Box>
     )}
   </ResponsiveContext.Consumer>

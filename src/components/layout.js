@@ -33,7 +33,7 @@ const NavHeading = styled(Link)`
 
 const NavLink = styled(Link)`
   text-decoration: none;
-  color: gray;
+  color: black;
 
   &:hover {
     color: black;
@@ -58,7 +58,7 @@ export default ({ children }) => {
     <Grommet theme={theme} full>
       <ResponsiveContext.Consumer>
         {size => (
-          <Box overflow="hidden">
+          <Box overflow="hidden" background="white">
             <Grid
               rows={["auto", "auto","flex", "auto"]}
               columns={["auto", "flex"]}
@@ -76,7 +76,7 @@ export default ({ children }) => {
                 pad={{ horizontal: "medium", vertical: "small" }}
               >
                 <NavHeading to="/">
-                  <Heading level="2" margin="none" color="dark-1">
+                  <Heading level="2" margin="none" color="black">
                     {data.site.siteMetadata.title}
                   </Heading>
                 </NavHeading>

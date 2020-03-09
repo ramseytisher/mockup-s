@@ -1,7 +1,4 @@
-/**
- * Implement Gatsby's Browser APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/browser-apis/
- */
+import Amplify from "aws-amplify"
+import awsconfig from "./src/aws-exports"
 
-// You can delete this file if you're not using it
+Amplify.configure(awsconfig)
