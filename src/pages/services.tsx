@@ -12,7 +12,7 @@ import { Box, Button, Heading, Text } from "grommet"
 export default () => {
   const image = useStaticQuery(graphql`
     query {
-      tools: file(relativePath: { eq: "tools.jpg" }) {
+      tools: file(relativePath: { eq: "tools-original.jpg" }) {
         childImageSharp {
           fluid(maxWidth: 900) {
             ...GatsbyImageSharpFluid
@@ -52,7 +52,13 @@ export default () => {
             </Box>
           }
         /> */}
-        <Box background="black" height="medium" align="center" justify="center" direction="row">
+        <Box
+          background="black"
+          height="medium"
+          align="center"
+          justify="center"
+          direction="row"
+        >
           <Heading>we make it simple</Heading>
           <Box width="medium">
             <Img
@@ -63,49 +69,57 @@ export default () => {
         </Box>
         <Box
           direction="row-responsive"
-          flex="grow"
           wrap
-          margin="small"
+          align="center"
           justify="center"
+          pad={{ vertical: "large" }}
+          background="white"
+          fill
+          gap="medium"
         >
           <ServiceCard
-            title="Title"
+            title="Service Ct"
             text="Etsy banjo poke williamsburg mustache cloud bread taiyaki pok pok
               art party seitan bitters you probably haven't heard of them vice.
               Banh mi banjo hammock small batch whatever williamsburg adaptogen
               four loko quinoa XOXO wayfarers franzen."
             image={image.services.childImageSharp.fluid}
+            button={
+              <Link to="/blog">
+                <Button>See this</Button>
+              </Link>
+            }
           />
           <ServiceCard
-            title="Title"
-            text="text"
+            title="Service Cs"
+            text="Etsy banjo poke williamsburg mustache cloud bread taiyaki pok pok
+              art party seitan bitters you probably haven't heard of them vice."
             image={image.services.childImageSharp.fluid}
+            button={
+              <Link to="/blog">
+                <Button>See this</Button>
+              </Link>
+            }
           />
           <ServiceCard
-            title="Title"
-            text="text"
+            title="Service Wd"
+            text="Etsy banjo poke williamsburg mustache cloud bread taiyaki pok pok"
             image={image.services.childImageSharp.fluid}
+            button={
+              <Link to="/blog">
+                <Button>See this</Button>
+              </Link>
+            }
           />
-          <ServiceCard
-            title="Title"
-            text="text"
-            image={image.services.childImageSharp.fluid}
-          />
-          <ServiceCard
-            title="Title"
-            text="text"
-            image={image.services.childImageSharp.fluid}
-          />
-          <ServiceCard
-            title="Title"
-            text="text"
-            image={image.services.childImageSharp.fluid}
-          />
-          <ServiceCard
-            title="Title"
-            text="text"
-            image={image.services.childImageSharp.fluid}
-          />
+        </Box>
+        <Box pad="xlarge" fill>
+          Contact
+        </Box>
+        <Box pad="xlarge" background="white" fill>
+          What people are saying
+        </Box>
+        <Box pad="xlarge" fill>
+          More about Cs
         </Box>
       </Layout>
     </>

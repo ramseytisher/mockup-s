@@ -26,6 +26,7 @@ export default () => {
   return (
     <Layout>
       <SEO title="About" />
+      <Box background="white">
       <HeroStack text={<Mission />} image={image.about1.childImageSharp.fluid} />
       <Box height="large" justify="center">
         <TextImage
@@ -34,6 +35,7 @@ export default () => {
         />
       </Box>
       <Box>this is about us</Box>
+      </Box>
     </Layout>
   )
 }

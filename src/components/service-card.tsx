@@ -24,7 +24,14 @@ const SmallImage = styled(Img)`
   width: 100px;
 `
 
-export default ({ title, text, image }) => (
+interface Props {
+  title: string
+  text: string
+  image?: any
+  button?: any
+}
+
+export default ({ title, text, image, button }: Props) => (
   <ResponsiveContext.Consumer>
     {size => (
       // <Box margin="small">
@@ -50,9 +57,21 @@ export default ({ title, text, image }) => (
       //     </Stack>
       //   )}
       // </Box>
-      <Box width="medium" pad="medium">
-        <Heading level={2}>{title}</Heading>
-        <Text>{text}</Text>
+      <Box
+        pad="large"
+        animation="slideUp"
+        round="small"
+        gap="small"
+        elevation="medium"
+        width={size !== "small" && "medium"}
+      >
+        <Heading level={2} margin="small">
+          {title}
+        </Heading>
+        <Box height={size !== "small" && "small"}>
+          <Text>{text}</Text>
+        </Box>
+        {button && button}
       </Box>
     )}
   </ResponsiveContext.Consumer>

@@ -33,15 +33,18 @@ const NavHeading = styled(Link)`
 
 const NavLink = styled(Link)`
   text-decoration: none;
-  color: black;
+  color: white;
 
   &:hover {
-    color: black;
     font-size: 1.15rem;
   }
 `
 
-export default ({ children }) => {
+interface Props {
+  children: any
+}
+
+export default ({ children }: Props) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -58,25 +61,17 @@ export default ({ children }) => {
     <Grommet theme={theme} full>
       <ResponsiveContext.Consumer>
         {size => (
-          <Box overflow="hidden" background="white">
-            <Grid
-              rows={["auto", "auto","flex", "auto"]}
-              columns={["auto", "flex"]}
-              areas={[
-                ["header", "header"],
-                ["main", "sidebar"],
-                ["footer", "footer"],
-              ]}
-            >
+          <Box overflow="hidden" background="black">
               <Box
                 gridArea="header"
                 direction="row"
                 align="center"
                 justify="between"
+                background="black"
                 pad={{ horizontal: "medium", vertical: "small" }}
               >
                 <NavHeading to="/">
-                  <Heading level="2" margin="none" color="black">
+                  <Heading level="2" margin="none" color="white">
                     {data.site.siteMetadata.title}
                   </Heading>
                 </NavHeading>
@@ -112,13 +107,12 @@ export default ({ children }) => {
                   <NavLink to="/contact">Contact</NavLink>
                 </Box>
               )}
-              <Box gridArea="main" flex="grow">
+              <Box gridArea="main" align="center">
                 {children}
               </Box>
               <Box gridArea="footer">
                 <Sitemap />
               </Box>
-            </Grid>
           </Box>
         )}
       </ResponsiveContext.Consumer>

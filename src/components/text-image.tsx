@@ -15,6 +15,14 @@ const RoundedImageRight = styled(Img)`
   margin-top: 10px;
 `
 
+interface Props {
+  text: string
+  image?: any
+  textSize?: string
+  flip?: boolean
+  dark?: boolean
+}
+
 export default ({ text, image, textSize, flip, dark }) => (
   <ResponsiveContext.Consumer>
     {size => (
