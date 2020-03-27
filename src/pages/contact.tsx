@@ -3,6 +3,9 @@ import Layout from "../components/layout"
 
 import { API } from "aws-amplify"
 
+import Email from "../components/contact/email"
+import Social from "../components/contact/social"
+
 import { Box, Button, Heading, Text } from "grommet"
 import { MailOption, Twitter, Instagram, Github } from "grommet-icons"
 
@@ -17,43 +20,15 @@ export default () => {
   return (
     <Layout>
       <Box
-        margin="medium"
-        pad="large"
         justify="center"
-        width="95vw"
-        height="large"
+        direction="row-responsirve"
+        fill
+        background="white"
+        align="start"
+        pad="small"
       >
-        <Box margin="large" gap="small">
-          <Heading margin="none">Email Us</Heading>
-          <Text>Feel free to send us an email to get more information</Text>
-          <Button
-            icon={<MailOption />}
-            plain
-            label="Email"
-            href="mailto:ramseytisher@gmail.com"
-          />
-        </Box>
-        <Box margin="large" gap="small">
-          <Heading margin="none">Find Us</Heading>
-          <Text>Find us on popular social media channels</Text>
-          <Box
-            pad="medium"
-            direction="row-responsive"
-            wrap
-            gap="large"
-            justify="between"
-          >
-            <Button
-              plain
-              icon={<Twitter />}
-              label="Twitter"
-              href="http://www.twitter.com/ramseytisher"
-              target="_blank"
-            />
-            <Button plain icon={<Instagram />} label="Instagram" />
-            <Button plain icon={<Github />} label="Github" />
-          </Box>
-        </Box>
+        <Email />
+        <Social />
       </Box>
 
       {/* <Box>this is how you contact us</Box>

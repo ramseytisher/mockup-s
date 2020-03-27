@@ -51,7 +51,7 @@ export default () => {
     <Layout>
       <SEO title="Home" />
       <Box background="black" height="small" align="center" justify="center">
-        <MainHeading margin="none">we make it simple</MainHeading>
+        <MainHeading margin="none">we make it simple.</MainHeading>
       </Box>
       <Box
         background="black"
@@ -124,10 +124,10 @@ export default () => {
         <Mission />
         <SiteLink to="/about">More about us</SiteLink>
       </Box>
-      <Box background="black">
+      {/* <Box background="black">
         <Heading>Featured Content</Heading>
         thing 1 thing 2 thing 3
-      </Box>
+      </Box> */}
     </Layout>
   )
 }

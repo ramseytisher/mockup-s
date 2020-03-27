@@ -6,6 +6,8 @@ import SEO from "../components/seo"
 import Layout from "../components/layout"
 import HeroStack from "../components/hero-stack"
 import ServiceCard from "../components/service-card"
+import Email from "../components/contact/email"
+import Social from "../components/contact/social"
 
 import { Box, Button, Heading, Text } from "grommet"
 
@@ -112,15 +114,24 @@ export default () => {
             }
           />
         </Box>
-        <Box pad="xlarge" fill>
-          Contact
+        <Box
+          pad="large"
+          fill
+          direction="row-responsirve"
+          align="start"
+          justify="center"
+          wrap
+          gap="large"
+        >
+          <Email elevate={false} />
+          <Social elevate={false} />
         </Box>
-        <Box pad="xlarge" background="white" fill>
+        {/* <Box pad="xlarge" background="white" fill>
           What people are saying
         </Box>
         <Box pad="xlarge" fill>
           More about Cs
-        </Box>
+        </Box> */}
       </Layout>
     </>
   )
