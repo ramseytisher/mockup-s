@@ -5,13 +5,17 @@ import { MailOption, Twitter, Instagram, Github } from "grommet-icons"
 
 export default ({ elevate }: Props) => (
   <Box
-    width="medium"
+    direction="row"
+    justify="evenly"
+    width="large"
     elevation={elevate && "small"}
-    pad="medium"
+    pad="large"
     gap="medium"
   >
-    <Heading margin="none">Find Us</Heading>
-    <Text>Find us on popular social media channels</Text>
+    <Box width="60%">
+      <Heading margin="none">Find Us</Heading>
+      <Text>Find us on popular social media channels</Text>
+    </Box>
     <Box align="center">
       <Box align="start" gap="medium" margin="small">
         <Button

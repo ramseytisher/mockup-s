@@ -43,15 +43,15 @@ export default ({ text, image, textSize, flip, dark }) => (
                   <RoundedImageRight fluid={image} />
                 )}
               </Box>
-              <Box align="center" justify="center" pad={size}>
-                <Paragraph textAlign="center">
+              <Box align="center" justify="center">
+                <Paragraph textAlign="center" size="large">
                   {text}
                 </Paragraph>
               </Box>
             </>
           ) : (
             <>
-              <Box align="center" justify="center" pad={size}>
+              <Box align="center" justify="center">
                 <Paragraph textAlign="center" size="large">
                   {text}
                 </Paragraph>

@@ -8,14 +8,18 @@ interface Props {
 }
 export default ({ elevate }: Props) => (
   <Box
-    width="medium"
+    direction="row"
+    width="large"
     elevation={elevate && "small"}
-    pad="medium"
+    pad="large"
     gap="medium"
+    justify="evenly"
   >
-    <Heading margin="none">Email Us</Heading>
-    <Text>Feel free to send us an email to get more information</Text>
-    <Box>
+    <Box width="60%">
+      <Heading margin="none">Email Us</Heading>
+      <Text>Feel free to send us an email to get more information</Text>
+    </Box>
+    <Box justify="center">
       <Button
         icon={<MailOption />}
         plain

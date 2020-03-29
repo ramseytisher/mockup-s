@@ -26,6 +26,7 @@ export default () => {
         background="white"
         align="start"
         pad="small"
+        wrap
       >
         <Email />
         <Social />

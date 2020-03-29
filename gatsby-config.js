@@ -42,6 +42,9 @@ module.exports = {
           {
             family: `Rajdhani`,
           },
+          {
+            family: `VT323`,
+          }
         ],
       },
     },
