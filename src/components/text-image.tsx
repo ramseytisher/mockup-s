@@ -4,13 +4,13 @@ import Img from "gatsby-image"
 import styled from "styled-components"
 
 const RoundedImageLeft = styled(Img)`
-  border-radius: 50px 0px 0px 50px;
+  border-radius: 25px 0px 0px 25px;
   max-height: 25vw;
   margin-top: 10px;
 `
 
 const RoundedImageRight = styled(Img)`
-  border-radius: 0px 50px 50px 0px;
+  border-radius: 0px 25px 25px 0px;
   max-height: 25vw;
   margin-top: 10px;
 `
