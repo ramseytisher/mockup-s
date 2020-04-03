@@ -1,40 +1,89 @@
 import React from "react"
-import SEO from "../components/seo"
-import { useStaticQuery, graphql } from "gatsby"
-
+import { Link, graphql } from "gatsby"
+import Img from "gatsby-image"
 import Layout from "../components/layout"
 
-import HeroStack from "../components/hero-stack"
+import { Box, Text } from "grommet"
 
-import { Box, Button } from "grommet"
+export default ({ data }) => (
+  <Layout>
+    <Box background="white" fill align="center" pad="small">
+      <Box
+        elevation="medium"
+        width="large"
+        pad="medium"
+        background="black"
+        round="small"
+      >
+        <Text>
+          Trysail Barbary Coast wherry crow's nest lee hogshead grapple matey
+          fire ship bilged on her anchor. Mutiny tack snow matey marooned aft
+          chantey ye strike colors loaded to the gunwalls. Privateer Gold Road
+          lanyard heave to chase transom jury mast square-rigged loaded to the
+          gunwalls rutters.
+        </Text>
+      </Box>
+    </Box>
+    <Box
+      fill
+      pad="medium"
+      background="white"
+      direction="row-responsive"
+      justify="center"
+      gap="small"
+    >
+      <Box gap="small" animation="fadeIn">
+        {data.allMdx.nodes.map(({ id, frontmatter, fields }) => (
+          <Box width="large" gap="small" pad="small">
+            <Text color="dark-3" size="small">
+              {frontmatter.date}
+            </Text>
+            <Link to={fields.slug}>
+              <Text weight="bold" size="large">
+                {frontmatter.title}
+              </Text>
+            </Link>
+            <Box direction="row-responsive" gap="small">
+              <Box width="medium">
+                <Text>{frontmatter.description}</Text>
+              </Box>
+              <Box width="medium">
+                <Img key={id} fluid={frontmatter.image.childImageSharp.fluid} />
+              </Box>
+            </Box>
+          </Box>
+        ))}
+      </Box>
+      {/* <Box>
+        <Box width="medium" pad="small" elevation="small" round="small">
+          asdsafd
+        </Box>
+      </Box> */}
+    </Box>
+  </Layout>
+)
 
-export default () => {
-  const image = useStaticQuery(graphql`
-    query {
-      projects: file(relativePath: { eq: "projects.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 1600) {
-            ...GatsbyImageSharpFluid
+export const query = graphql`
+  query {
+    allMdx(filter: { fileAbsolutePath: { regex: "/content/project/" } }) {
+      nodes {
+        id
+        frontmatter {
+          title
+          description
+          date
+          image {
+            childImageSharp {
+              fluid(maxWidth: 600) {
+                ...GatsbyImageSharpFluid
+              }
+            }
           }
+        }
+        fields {
+          slug
         }
       }
     }
-  `)
-
-  return (
-    <Layout>
-      <SEO title="About" />
-      <Box direction="row" gap="large">
-        <Button color="accent-1" label="Project 1" />
-        <Button color="accent-1" label="Project 2" />
-        <Button color="accent-1" label="Project 3" />
-      </Box>
-      <HeroStack
-        text="More about what our projects are ..."
-        image={image.projects.childImageSharp.fluid}
-      />
-
-      <Box>this is about us</Box>
-    </Layout>
-  )
-}
+  }
+`

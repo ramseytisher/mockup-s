@@ -33,7 +33,7 @@ const NavHeading = styled(Link)`
 
 const NavLink = styled(Link)`
   text-decoration: none;
-  color: white;
+  color: black;
 
   &:hover {
     font-size: 1.15rem;
@@ -67,11 +67,11 @@ export default ({ children }: Props) => {
                 direction="row"
                 align="center"
                 justify="between"
-                background="black"
+                background="white"
                 pad={{ horizontal: "medium", vertical: "small" }}
               >
                 <NavHeading to="/">
-                  <Heading level="2" margin="none" color="white">
+                  <Heading level="2" margin="none" color="black">
                     {data.site.siteMetadata.title}
                   </Heading>
                 </NavHeading>

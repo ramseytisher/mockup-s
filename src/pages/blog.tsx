@@ -1,6 +1,6 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
-
+import Img from "gatsby-image"
 import Layout from "../components/layout"
 
 import { Box, Text } from "grommet"
@@ -15,16 +15,23 @@ export default ({ data }) => (
       justify="center"
       gap="small"
     >
-      <Box gap="small">
+      <Box gap="small" animation="fadeIn">
         {data.allMdx.nodes.map(({ id, frontmatter, fields }) => (
           <Box width="large" gap="small" pad="small">
             <Text color="dark-3" size="small">
               {frontmatter.date}
             </Text>
             <Link to={fields.slug}>
-              <Text weight="bold">{frontmatter.title}</Text>
+              <Text weight="bold" size="large">{frontmatter.title}</Text>
             </Link>
-            <Text>{frontmatter.description}</Text>
+            <Box direction="row-responsive" gap="small">
+              <Box width="medium">
+                <Text>{frontmatter.description}</Text>
+              </Box>
+              <Box width="medium">
+                <Img key={id} fluid={frontmatter.image.childImageSharp.fluid} />
+              </Box>
+            </Box>
           </Box>
         ))}
       </Box>
@@ -34,19 +41,26 @@ export default ({ data }) => (
         </Box>
       </Box>
     </Box>
-    <pre>{JSON.stringify(data.allMdx, null, 2)}</pre>
   </Layout>
 )
 
 export const query = graphql`
   query {
-    allMdx {
+    allMdx(filter: {fileAbsolutePath: {regex: "/content/blog/"}}) {
       nodes {
         id
+        fileAbsolutePath
         frontmatter {
           title
           description
           date
+          image {
+            childImageSharp {
+              fluid(maxWidth: 600) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
         }
         fields {
           slug

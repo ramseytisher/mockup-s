@@ -17,9 +17,9 @@ exports.onCreateNode = ({ node, getNode, actions, reporter }) => {
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
-  const result = await graphql(`
+  const projectNodes = await graphql(`
     query {
-      allMdx {
+      allMdx(filter: {fileAbsolutePath: {regex: "/content/project/"}}) {
         nodes {
           id
           fields {
@@ -30,14 +30,36 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `)
 
-  result.data.allMdx.nodes.forEach((node) => {
-    console.log(JSON.stringify(node, null, 2))
+  projectNodes.data.allMdx.nodes.forEach(node => {
     createPage({
       path: node.fields.slug,
-      component: path.resolve(`./src/templates/blog-template.tsx`),
+      component: path.resolve(`./src/templates/project-template.tsx`),
       context: {
-        id: node.id,
-      },
+        id: node.id
+      }
+    })
+  })
+
+  const blogNodes = await graphql(`
+    query {
+      allMdx(filter: {fileAbsolutePath: {regex: "/content/blog/"}}) {
+        nodes {
+          id
+          fields {
+            slug
+          }
+        }
+      }
+    }
+  `)
+
+  blogNodes.data.allMdx.nodes.forEach(node => {
+    createPage({
+      path: node.fields.slug,
+      component: path.resolve(`./src/templates/project-template.tsx`),
+      context: {
+        id: node.id
+      }
     })
   })
 }

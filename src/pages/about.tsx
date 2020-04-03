@@ -39,18 +39,7 @@ export default () => {
       <Box background="black">
         <Mission />
       </Box>
-      <Box background="white" fill align="center" pad="medium">
-        <Box elevation="medium" pad="large" round="small" gap="small" background="dark-1">
-          <Box justify="center" direction="row" height="60px">
-            <Typer text="hello, world!" duration="300" delay="3000" />
-          </Box>
-          <Paragraph>
-            We all remember the moment in the time that inspired us to pursue a
-            hobby, passion, and/or career. One of the most common for us was
-            seeing "hello, world!" display on a computer screen.
-          </Paragraph>
-        </Box>
-      </Box>
+      
       <Box fill background="white" pad={{ bottom: "small" }}>
         <TextImage
           flip
@@ -58,7 +47,19 @@ export default () => {
           image={image.about1.childImageSharp.fluid}
         />
       </Box>
-      <Box
+      <Box background="white" fill align="center" pad="medium">
+        <Box elevation="medium" pad="large" round="small" gap="small" background="black">
+          <Box justify="center" direction="row" height="60px">
+            <Typer text="hello, world!" duration="300" delay="3000" />
+          </Box>
+          <Paragraph size="large">
+            We all remember the moment in the time that inspired us to pursue a
+            hobby, passion, and/or career. One of the most common for us was
+            seeing "hello, world!" display on a computer screen.
+          </Paragraph>
+        </Box>
+      </Box>
+      {/* <Box
         direction="row"
         gap="small"
         background="white"
@@ -75,7 +76,7 @@ export default () => {
         <Link to="/projects">
           <Button label="Projects" color="black" />
         </Link>
-      </Box>
+      </Box> */}
       <Box fill background="white" pad={{ bottom: "small" }}>
         <TextImage
           text="Our projects are a way for us to create, build, and explore new technologies; leaving the technical world a little better than we found it."

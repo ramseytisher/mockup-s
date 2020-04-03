@@ -68,7 +68,7 @@ export default () => {
           justify="end"
           width="large"
           gap="medium"
-          animation="slideUp"
+          animation="slideRight"
         >
           <Box alignContent="center" width="medium">
             <Heading level={3} alignSelf="end">
@@ -119,7 +119,7 @@ export default () => {
         width="100vw"
         justify="center"
         background="white"
-        animation="slideLeft"
+        animation="fadeIn"
       >
         <Mission />
         <SiteLink to="/about">More about us</SiteLink>
