@@ -4,14 +4,7 @@ import { useStaticQuery, graphql, Link } from "gatsby"
 import styled from "styled-components"
 import Sitemap from "./sitemap"
 
-import {
-  Grommet,
-  ResponsiveContext,
-  Button,
-  Box,
-  Grid,
-  Heading
-} from "grommet"
+import { Grommet, ResponsiveContext, Button, Box, Grid, Heading } from "grommet"
 import { Menu, Close } from "grommet-icons"
 
 const theme = {
@@ -62,57 +55,59 @@ export default ({ children }: Props) => {
       <ResponsiveContext.Consumer>
         {size => (
           <Box overflow="hidden" background="black">
-              <Box
-                gridArea="header"
-                direction="row"
-                align="center"
-                justify="between"
-                background="white"
-                pad={{ horizontal: "medium", vertical: "small" }}
-              >
-                <NavHeading to="/">
-                  <Heading level="2" margin="none" color="black">
-                    {data.site.siteMetadata.title}
-                  </Heading>
-                </NavHeading>
-                {size === "small" ? (
-                  <Button
-                    icon={showSidebar ? <Close /> : <Menu />}
-                    onClick={() => setShowSidebar(!showSidebar)}
-                  />
-                ) : (
-                  <Box direction="row" gap="medium">
-                    <NavLink to="/services">Services</NavLink>
-                    <NavLink to="/blog">Blog</NavLink>
-                    <NavLink to="/projects">Projects</NavLink>
-                    <NavLink to="/about">About</NavLink>
-                    <NavLink to="/contact">Contact</NavLink>
-                  </Box>
-                )}
-              </Box>
-              {showSidebar && (
-                <Box
-                  gridArea="sidebar"
-                  gap="large"
-                  pad="small"
-                  width="small"
-                  style={{ zIndex: 100 }}
-                  background="light-2"
-                  align="center"
-                >
+            <Box
+              gridArea="header"
+              direction="row"
+              align="center"
+              justify="between"
+              background="white"
+              pad={{ horizontal: "medium", vertical: "small" }}
+            >
+              <NavHeading to="/">
+                <Heading level="2" margin="none" color="black">
+                  {data.site.siteMetadata.title}
+                </Heading>
+              </NavHeading>
+              {size === "small" ? (
+                <Button
+                  icon={showSidebar ? <Close /> : <Menu />}
+                  onClick={() => setShowSidebar(!showSidebar)}
+                />
+              ) : (
+                <Box direction="row" gap="medium" align="center" >
                   <NavLink to="/services">Services</NavLink>
                   <NavLink to="/blog">Blog</NavLink>
                   <NavLink to="/projects">Projects</NavLink>
                   <NavLink to="/about">About</NavLink>
-                  <NavLink to="/contact">Contact</NavLink>
+                  <NavLink to="/contact">
+                    <Button label="Contact Us" hoverIndicator primary/>
+                  </NavLink>
                 </Box>
               )}
-              <Box gridArea="main" align="center">
-                {children}
+            </Box>
+            {showSidebar && (
+              <Box
+                gridArea="sidebar"
+                gap="large"
+                pad="small"
+                width="small"
+                style={{ zIndex: 100 }}
+                background="light-2"
+                align="center"
+              >
+                <NavLink to="/services">Services</NavLink>
+                <NavLink to="/blog">Blog</NavLink>
+                <NavLink to="/projects">Projects</NavLink>
+                <NavLink to="/about">About</NavLink>
+                <NavLink to="/contact">Contact</NavLink>
               </Box>
-              <Box gridArea="footer">
-                <Sitemap />
-              </Box>
+            )}
+            <Box gridArea="main" align="center">
+              {children}
+            </Box>
+            <Box gridArea="footer">
+              <Sitemap />
+            </Box>
           </Box>
         )}
       </ResponsiveContext.Consumer>

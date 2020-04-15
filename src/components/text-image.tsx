@@ -1,5 +1,5 @@
 import React from "react"
-import { Box, Grid, Paragraph, ResponsiveContext } from "grommet"
+import { Box, Grid, Paragraph, Heading, ResponsiveContext } from "grommet"
 import Img from "gatsby-image"
 import styled from "styled-components"
 
@@ -16,17 +16,18 @@ const RoundedImageRight = styled(Img)`
 `
 
 interface Props {
+  title?: string
   text: string
   image?: any
   textSize?: string
   flip?: boolean
-  dark?: boolean
+  background?: boolean
 }
 
-export default ({ text, image, textSize, flip, dark }) => (
+export default ({ title, text, image, textSize, flip, background }) => (
   <ResponsiveContext.Consumer>
     {size => (
-      <Box background={dark && "dark-1"}>
+      <Box background={background && background} fill pad={{ bottom: "small" }}>
         <Grid
           fill
           columns={{
@@ -44,7 +45,12 @@ export default ({ text, image, textSize, flip, dark }) => (
                 )}
               </Box>
               <Box align="center" justify="center">
-                <Paragraph textAlign="center" size="large">
+                {title && (
+                  <Heading level={3} alignSelf="center" margin="small">
+                    {title}
+                  </Heading>
+                )}
+                <Paragraph textAlign="center" margin="medium">
                   {text}
                 </Paragraph>
               </Box>
@@ -52,7 +58,12 @@ export default ({ text, image, textSize, flip, dark }) => (
           ) : (
             <>
               <Box align="center" justify="center">
-                <Paragraph textAlign="center" size="large">
+                {title && (
+                  <Heading level={3} alignSelf="center" margin="small">
+                    {title}
+                  </Heading>
+                )}
+                <Paragraph textAlign="center" margin="medium">
                   {text}
                 </Paragraph>
               </Box>

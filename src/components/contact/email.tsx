@@ -15,9 +15,9 @@ export default ({ elevate }: Props) => (
     gap="medium"
     justify="evenly"
   >
-    <Box width="60%">
-      <Heading margin="none">Email Us</Heading>
-      <Text>Feel free to send us an email to get more information</Text>
+    <Box>
+      <Heading level={3} margin="none">Email Us</Heading>
+      <Text margin="small">Feel free to send us an email to get more information</Text>
     </Box>
     <Box justify="center">
       <Button

@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react"
 import Layout from "../components/layout"
 
-import { API } from "aws-amplify"
-
 import Email from "../components/contact/email"
 import Social from "../components/contact/social"
+import Contact from "../components/contact"
 
 import { Box, Button, Heading, Text } from "grommet"
 import { MailOption, Twitter, Instagram, Github } from "grommet-icons"
@@ -24,12 +23,9 @@ export default () => {
         direction="row-responsirve"
         fill
         background="white"
-        align="start"
-        pad="small"
         wrap
       >
-        <Email />
-        <Social />
+        <Contact />
       </Box>
 
       {/* <Box>this is how you contact us</Box>

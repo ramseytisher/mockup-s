@@ -16,13 +16,19 @@ module.exports = {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 1035,
-              sizeByPixelDensity: true
-            }
-          }
-        ]
-      }
+              sizeByPixelDensity: true,
+            },
+          },
+        ],
+      },
     },
-    `gatsby-plugin-typescript`,
+    {
+      resolve: `gatsby-plugin-typescript`,
+      options: {
+        isTSX: true,
+        allExtensions: true,
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {

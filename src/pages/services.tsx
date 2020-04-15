@@ -8,7 +8,8 @@ import HeroStack from "../components/hero-stack"
 import ServiceCard from "../components/service-card"
 import Contact from "../components/contact"
 
-import { Box, Button, Heading, Text } from "grommet"
+import { Box, Button, Heading, Text, Tabs, Tab } from "grommet"
+import { CatalogOption } from "grommet-icons"
 
 export default () => {
   const image = useStaticQuery(graphql`
@@ -79,7 +80,7 @@ export default () => {
           gap="medium"
         >
           <ServiceCard
-            title="Service Ct"
+            title="Edu Services"
             text="Etsy banjo poke williamsburg mustache cloud bread taiyaki pok pok
               art party seitan bitters you probably haven't heard of them vice.
               Banh mi banjo hammock small batch whatever williamsburg adaptogen
@@ -92,7 +93,7 @@ export default () => {
             }
           />
           <ServiceCard
-            title="Service Cs"
+            title="Prt Services"
             text="Etsy banjo poke williamsburg mustache cloud bread taiyaki pok pok
               art party seitan bitters you probably haven't heard of them vice."
             image={image.services.childImageSharp.fluid}
@@ -103,7 +104,7 @@ export default () => {
             }
           />
           <ServiceCard
-            title="Service Wd"
+            title="Gen Services"
             text="Etsy banjo poke williamsburg mustache cloud bread taiyaki pok pok"
             image={image.services.childImageSharp.fluid}
             button={
@@ -113,7 +114,39 @@ export default () => {
             }
           />
         </Box>
-        <Contact />
+        <Box
+          pad="medium"
+          margin={{ vertical: "large" }}
+          align="center"
+          width="large"
+        >
+          <Heading>General Title</Heading>
+          <Text>
+            Booty jack long clothes to go on account snow keelhaul lanyard brig
+            coffer bounty. Walk the plank belaying pin heave down spike topmast
+            tackle squiffy crack Jennys tea cup barkadeer furl. Heave to lookout
+            pink Privateer Sea Legs chantey pressgang port gun provost.
+          </Text>
+          <Link to="/contact">
+            <Button primary hoverIndicator label="Contact Us" />
+          </Link>
+        </Box>
+        <Box fill background="white" pad="medium">
+          <Tabs>
+            <Tab title="Edu">
+              <Box direction="row-responsive" justify="center">
+                <Box width="medium" direction="row">
+                  <CatalogOption />
+                  <Text>sadasd asdasdfasdf</Text>
+                </Box>
+              </Box>
+            </Tab>
+            <Tab title="Pro"></Tab>
+          </Tabs>
+        </Box>
+        <Box fill background="white">
+          <Contact />
+        </Box>
       </Layout>
     </>
   )
