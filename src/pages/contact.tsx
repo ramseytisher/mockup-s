@@ -5,7 +5,7 @@ import Email from "../components/contact/email"
 import Social from "../components/contact/social"
 import Contact from "../components/contact"
 
-import { Box, Button, Heading, Text } from "grommet"
+import { Box, Button, Heading } from "grommet"
 import { MailOption, Twitter, Instagram, Github } from "grommet-icons"
 
 export default () => {

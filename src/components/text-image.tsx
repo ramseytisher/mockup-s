@@ -24,7 +24,7 @@ interface Props {
   background?: boolean
 }
 
-export default ({ title, text, image, textSize, flip, background }) => (
+export default ({ title, text, image, textSize, flip, background }: Props) => (
   <ResponsiveContext.Consumer>
     {size => (
       <Box background={background && background} fill pad={{ bottom: "small" }}>

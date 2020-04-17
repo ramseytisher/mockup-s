@@ -5,7 +5,7 @@ import Layout from "../components/layout"
 
 import { Box, Text } from "grommet"
 
-export default ({ data }) => (
+export default ({ data }: any) => (
   <Layout>
     <Box background="white" fill align="center" pad="small">
       <Box
@@ -33,7 +33,7 @@ export default ({ data }) => (
       gap="small"
     >
       <Box gap="small" animation="fadeIn">
-        {data.allMdx.nodes.map(({ id, frontmatter, fields }) => (
+        {data.allMdx.nodes.map(({ id, frontmatter, fields }: any) => (
           <Box width="large" gap="small" pad="small">
             <Text color="dark-3" size="small">
               {frontmatter.date}

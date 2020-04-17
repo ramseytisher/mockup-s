@@ -4,7 +4,6 @@ import Img from "gatsby-image"
 
 import SEO from "../components/seo"
 import Layout from "../components/layout"
-import HeroStack from "../components/hero-stack"
 import ServiceCard from "../components/service-card"
 import Contact from "../components/contact"
 
@@ -32,7 +31,7 @@ export default () => {
   `)
   return (
     <>
-      <SEO title="Our Services" />
+      <SEO title="Our Services" description="asdf" lang="us" meta="something" />
 
       <Layout>
         {/* <HeroStack

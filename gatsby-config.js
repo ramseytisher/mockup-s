@@ -22,13 +22,7 @@ module.exports = {
         ],
       },
     },
-    {
-      resolve: `gatsby-plugin-typescript`,
-      options: {
-        isTSX: true,
-        allExtensions: true,
-      },
-    },
+    `gatsby-plugin-typescript`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {

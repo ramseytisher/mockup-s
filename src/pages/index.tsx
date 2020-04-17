@@ -6,11 +6,10 @@ import Img from "gatsby-image"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-import TextBlock from "../components/text-block"
 import Mission from "../components/mission"
 import HeroStack from "../components/hero-stack"
 
-import { Box, Stack, Heading, Text, Button } from "grommet"
+import { Box, Heading, Text, Button } from "grommet"
 
 const SiteLink = styled(Link)`
   font-family: "Bangers";

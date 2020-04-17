@@ -8,7 +8,7 @@ import Layout from '../components/layout'
 
 const shortcodes = { Link }
 
-export default ({ data: { mdx } }) => {
+export default ({ data: { mdx } }: any) => {
     return (
         <Layout>
             <div>Hello from Blog Post Template</div>

@@ -10,7 +10,11 @@ import Layout from "../components/layout"
 
 const shortcodes = { Link }
 
-export default ({ data: { mdx } }) => {
+interface Props {
+  data: any
+}
+
+export default ({ data: { mdx } }: Props) => {
   return (
     <Layout>
       <Box fill background="white">
