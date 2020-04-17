@@ -7,7 +7,6 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 import Mission from "../components/mission"
-import HeroStack from "../components/hero-stack"
 
 import { Box, Heading, Text, Button } from "grommet"
 
@@ -26,7 +25,7 @@ const MainHeading = styled(Heading)`
   font-size: 3em;
 `
 
-export default () => {
+const IndexPage = () => {
   const image = useStaticQuery(graphql`
     query {
       lightbulb: file(relativePath: { eq: "lightbulb-white.jpg" }) {
@@ -74,8 +73,8 @@ export default () => {
               Our Ideas
             </Heading>
             <Text textAlign="end">
-              Etsy banjo poke williamsburg mustache cloud bread taiyaki pok pok
-              art party seitan bitters you probably haven't heard of them vice.
+              {`Etsy banjo poke williamsburg mustache cloud bread taiyaki pok pok
+              art party seitan bitters you probably haven't heard of them vice.`}
             </Text>
             <Button alignSelf="end">Link</Button>
           </Box>
@@ -105,8 +104,8 @@ export default () => {
           <Box>
             <Heading level={3}>Our Systems</Heading>
             <Text>
-              Etsy banjo poke williamsburg mustache cloud bread taiyaki pok pok
-              art party seitan bitters you probably haven't heard of them vice.
+              {`Etsy banjo poke williamsburg mustache cloud bread taiyaki pok pok
+              art party seitan bitters you probably haven't heard of them vice.`}
             </Text>
             <Button>Link</Button>
           </Box>
@@ -130,3 +129,5 @@ export default () => {
     </Layout>
   )
 }
+
+export default IndexPage

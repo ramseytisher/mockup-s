@@ -7,7 +7,7 @@ interface Props {
   text: string
 }
 
-export default ({icon, text}: Props) => (
+export default ({ icon, text }: Props) => (
   <Box direction="row" gap="medium">
     {icon}
     <Text>{text}</Text>

@@ -19,7 +19,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const projectNodes = await graphql(`
     query {
-      allMdx(filter: {fileAbsolutePath: {regex: "/content/project/"}}) {
+      allMdx(filter: { fileAbsolutePath: { regex: "/content/project/" } }) {
         nodes {
           id
           fields {
@@ -35,14 +35,14 @@ exports.createPages = async ({ graphql, actions }) => {
       path: node.fields.slug,
       component: path.resolve(`./src/templates/project-template.tsx`),
       context: {
-        id: node.id
-      }
+        id: node.id,
+      },
     })
   })
 
   const blogNodes = await graphql(`
     query {
-      allMdx(filter: {fileAbsolutePath: {regex: "/content/blog/"}}) {
+      allMdx(filter: { fileAbsolutePath: { regex: "/content/blog/" } }) {
         nodes {
           id
           fields {
@@ -58,8 +58,8 @@ exports.createPages = async ({ graphql, actions }) => {
       path: node.fields.slug,
       component: path.resolve(`./src/templates/project-template.tsx`),
       context: {
-        id: node.id
-      }
+        id: node.id,
+      },
     })
   })
 }

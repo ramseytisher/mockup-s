@@ -12,8 +12,12 @@ export default ({ elevate }: Props) => (
     gap="medium"
   >
     <Box>
-      <Heading level={3} margin="none">Find Us</Heading>
-      <Text margin="xsmall">Follow us on popular these social media channels</Text>
+      <Heading level={3} margin="none">
+        Find Us
+      </Heading>
+      <Text margin="xsmall">
+        Follow us on popular these social media channels
+      </Text>
     </Box>
     <Box align="center">
       <Box align="start" gap="medium" margin="small">

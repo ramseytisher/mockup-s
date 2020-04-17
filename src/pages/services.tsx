@@ -10,7 +10,7 @@ import Contact from "../components/contact"
 import { Box, Button, Heading, Text, Tabs, Tab } from "grommet"
 import { CatalogOption } from "grommet-icons"
 
-export default () => {
+const ServicesPage = () => {
   const image = useStaticQuery(graphql`
     query {
       tools: file(relativePath: { eq: "tools-original.jpg" }) {
@@ -150,3 +150,5 @@ export default () => {
     </>
   )
 }
+
+export default ServicesPage

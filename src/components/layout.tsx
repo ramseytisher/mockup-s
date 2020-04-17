@@ -74,13 +74,13 @@ export default ({ children }: Props) => {
                   onClick={() => setShowSidebar(!showSidebar)}
                 />
               ) : (
-                <Box direction="row" gap="medium" align="center" >
+                <Box direction="row" gap="medium" align="center">
                   <NavLink to="/services">Services</NavLink>
                   <NavLink to="/blog">Blog</NavLink>
                   <NavLink to="/projects">Projects</NavLink>
                   <NavLink to="/about">About</NavLink>
                   <NavLink to="/contact">
-                    <Button label="Contact Us" hoverIndicator primary/>
+                    <Button label="Contact Us" hoverIndicator primary />
                   </NavLink>
                 </Box>
               )}

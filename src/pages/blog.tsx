@@ -5,7 +5,7 @@ import Layout from "../components/layout"
 
 import { Box, Text } from "grommet"
 
-export default ({ data }) => (
+const BlogPage = ({ data }) => (
   <Layout>
     <Box
       fill
@@ -17,12 +17,14 @@ export default ({ data }) => (
     >
       <Box gap="small" animation="fadeIn">
         {data.allMdx.nodes.map(({ id, frontmatter, fields }) => (
-          <Box width="large" gap="small" pad="small">
+          <Box width="large" gap="small" pad="small" key={id}>
             <Text color="dark-3" size="small">
               {frontmatter.date}
             </Text>
             <Link to={fields.slug}>
-              <Text weight="bold" size="large">{frontmatter.title}</Text>
+              <Text weight="bold" size="large">
+                {frontmatter.title}
+              </Text>
             </Link>
             <Box direction="row-responsive" gap="small">
               <Box width="medium">
@@ -44,9 +46,11 @@ export default ({ data }) => (
   </Layout>
 )
 
+export default BlogPage
+
 export const query = graphql`
   query {
-    allMdx(filter: {fileAbsolutePath: {regex: "/content/blog/"}}) {
+    allMdx(filter: { fileAbsolutePath: { regex: "/content/blog/" } }) {
       nodes {
         id
         fileAbsolutePath

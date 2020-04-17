@@ -12,7 +12,14 @@ interface Props {
 }
 
 export default ({ title, text, background, link, linkText }) => (
-  <Box background={background} pad="medium" align="center" justify="evenly" round="xsmall" elevation="medium">
+  <Box
+    background={background}
+    pad="medium"
+    align="center"
+    justify="evenly"
+    round="xsmall"
+    elevation="medium"
+  >
     <Heading margin="none" level={3}>
       {title}
     </Heading>

@@ -1,20 +1,16 @@
 import React from "react"
 import SEO from "../components/seo"
-import { useStaticQuery, Link, graphql } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import Contact from "../components/contact"
 import Typer from "../components/typer"
 import TextImage from "../components/text-image"
 import Mission from "../components/mission"
-import HeroStack from "../components/hero-stack"
-import IconText from "../components/icon-text"
-import AboutCard from "../components/about-card"
 
-import { Box, Paragraph, Button, Heading, Distribution } from "grommet"
-import { Deploy, Code } from "grommet-icons"
+import { Box, Paragraph, Heading } from "grommet"
 
-export default () => {
+const AboutPage = () => {
   const image = useStaticQuery(graphql`
     query {
       about1: file(relativePath: { eq: "about1.jpg" }) {
@@ -58,9 +54,9 @@ export default () => {
             <Typer text="hello, world!" duration="300" delay="3000" />
           </Box>
           <Paragraph size="large">
-            We all remember the moment in the time that inspired us to pursue a
+            {`We all remember the moment in the time that inspired us to pursue a
             hobby, passion, and/or career. One of the most common for us was
-            seeing "hello, world!" display on a computer screen.
+            seeing "hello, world!" display on a computer screen.`}
           </Paragraph>
         </Box>
       </Box>
@@ -183,3 +179,5 @@ export default () => {
     </Layout>
   )
 }
+
+export default AboutPage

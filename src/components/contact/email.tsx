@@ -16,8 +16,12 @@ export default ({ elevate }: Props) => (
     justify="evenly"
   >
     <Box>
-      <Heading level={3} margin="none">Email Us</Heading>
-      <Text margin="small">Feel free to send us an email to get more information</Text>
+      <Heading level={3} margin="none">
+        Email Us
+      </Heading>
+      <Text margin="small">
+        Feel free to send us an email to get more information
+      </Text>
     </Box>
     <Box justify="center">
       <Button

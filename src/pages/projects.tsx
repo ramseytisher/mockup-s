@@ -5,7 +5,7 @@ import Layout from "../components/layout"
 
 import { Box, Text } from "grommet"
 
-export default ({ data }: any) => (
+const ProjectsPage = ({ data }: any) => (
   <Layout>
     <Box background="white" fill align="center" pad="small">
       <Box
@@ -16,11 +16,11 @@ export default ({ data }: any) => (
         round="small"
       >
         <Text>
-          Trysail Barbary Coast wherry crow's nest lee hogshead grapple matey
+          {`Trysail Barbary Coast wherry crow's nest lee hogshead grapple matey
           fire ship bilged on her anchor. Mutiny tack snow matey marooned aft
           chantey ye strike colors loaded to the gunwalls. Privateer Gold Road
           lanyard heave to chase transom jury mast square-rigged loaded to the
-          gunwalls rutters.
+          gunwalls rutters.`}
         </Text>
       </Box>
     </Box>
@@ -34,7 +34,7 @@ export default ({ data }: any) => (
     >
       <Box gap="small" animation="fadeIn">
         {data.allMdx.nodes.map(({ id, frontmatter, fields }: any) => (
-          <Box width="large" gap="small" pad="small">
+          <Box width="large" gap="small" pad="small" key={id}>
             <Text color="dark-3" size="small">
               {frontmatter.date}
             </Text>
@@ -62,6 +62,8 @@ export default ({ data }: any) => (
     </Box>
   </Layout>
 )
+
+export default ProjectsPage
 
 export const query = graphql`
   query {

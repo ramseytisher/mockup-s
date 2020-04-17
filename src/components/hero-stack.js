@@ -23,9 +23,9 @@ const HeroHeading = styled(Heading)`
 `
 
 export default ({ text, image, textSize, flip, dark }) => (
-  <Stack  anchor="center">
+  <Stack anchor="center">
     <HeroBox>
-        <HeroImage fluid={image} />
+      <HeroImage fluid={image} />
     </HeroBox>
     <HeroHeading margin="none">{text}</HeroHeading>
   </Stack>
