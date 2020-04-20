@@ -4,11 +4,13 @@ import styled from "styled-components"
 import Img from "gatsby-image"
 
 import Layout from "../components/layout"
+import IconTitleCard from "../components/icon-title-card"
 import SEO from "../components/seo"
 
 import Mission from "../components/mission"
 
-import { Box, Heading, Text, Button } from "grommet"
+import { Box, Grid, Heading, Text, Button } from "grommet"
+import { Deploy } from "grommet-icons"
 
 const SiteLink = styled(Link)`
   font-family: "Bangers";
@@ -110,6 +112,58 @@ const IndexPage = () => {
             <Button>Link</Button>
           </Box>
         </Box>
+      </Box>
+      <Box
+        fill
+        background="white"
+        direction="row-responsive"
+        wrap
+        justify="center"
+        pad="medium"
+        gap="large"
+      >
+        <Box width="medium" justify="center" gap="small" pad="small">
+          <Heading level={3} margin="none">
+            Some heading
+          </Heading>
+          <Heading level={2} margin="none">Big Heading</Heading>
+          <Text>
+            {`Etsy banjo poke williamsburg mustache cloud bread taiyaki pok pok
+              art party seitan bitters you probably haven't heard of them vice.`}
+          </Text>
+          <Button color="brand" label="See Our Services" />
+        </Box>
+        <Grid
+          gap="small"
+          pad="large"
+          alignContent="start"
+          columns={{ count: 2, size: "auto" }}
+        >
+          <IconTitleCard
+            title="Something Title"
+            text={`Etsy banjo poke  bread taiyaki pok pok
+              art party seitan  you probably haven't heard of them vice.`}
+            icon={<Deploy />}
+          />
+          <IconTitleCard
+            title="Something Title"
+            text={`Etsy banjo poke  taiyaki pok pok
+              art party seitan heard of them vice.`}
+            icon={<Deploy />}
+          />
+          <IconTitleCard
+            title="Something Title"
+            text={`williamsburg mustache cloud bread taiyaki pok pok
+              art party seitan bitters you probably haven't heard of them vice.`}
+            icon={<Deploy />}
+          />
+          <IconTitleCard
+            title="Something Title"
+            text={`Etsy banjo poke williamsburg mustache cloud bread taiyaki pok pok
+              art t heard of them vice.`}
+            icon={<Deploy />}
+          />
+        </Grid>
       </Box>
       <Box
         align="center"

@@ -4,9 +4,9 @@ import Email from "./email"
 import Social from "./social"
 import ContactCard from "./card"
 
-import { Grid, Box, Button, Heading } from "grommet"
+import { Grid, Box, Heading } from "grommet"
 
-export default () => (
+const Contact = () => (
   <Box fill pad="small">
     <Heading level={2} margin="xsmall" alignSelf="center">
       How can we help?
@@ -29,6 +29,8 @@ export default () => (
     </Grid>
   </Box>
 )
+
+export default Contact
 
 // import React, { useState } from "React"
 
