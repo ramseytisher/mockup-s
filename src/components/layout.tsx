@@ -3,6 +3,7 @@ import { useStaticQuery, graphql, Link } from "gatsby"
 
 import styled from "styled-components"
 import Sitemap from "./sitemap"
+import Img from "gatsby-image"
 
 import { Grommet, ResponsiveContext, Button, Box, Grid, Heading } from "grommet"
 import { Menu, Close } from "grommet-icons"
@@ -37,18 +38,21 @@ interface Props {
   children: any
 }
 
-export default ({ children }: Props) => {
+const Layout = ({ children }: Props) => {
   const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
+    query {
+      logo: file(relativePath: { eq: "simple-logo.png" }) {
+        childImageSharp {
+          fluid(maxHeight: 100) {
+            ...GatsbyImageSharpFluid
+          }
         }
       }
     }
   `)
 
   const [showSidebar, setShowSidebar] = useState(false)
+  const [showLinks, setShowLinks] = useState(false)
 
   return (
     <Grommet theme={theme} full>
@@ -64,9 +68,9 @@ export default ({ children }: Props) => {
               pad={{ horizontal: "medium", vertical: "small" }}
             >
               <NavHeading to="/">
-                <Heading level="2" margin="none" color="black">
-                  {data.site.siteMetadata.title}
-                </Heading>
+                <Box width="small">
+                  <Img fluid={data.logo.childImageSharp.fluid} />
+                </Box>
               </NavHeading>
               {size === "small" ? (
                 <Button
@@ -114,3 +118,5 @@ export default ({ children }: Props) => {
     </Grommet>
   )
 }
+
+export default Layout

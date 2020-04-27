@@ -2,6 +2,7 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import Img from "gatsby-image"
 import Layout from "../components/layout"
+import { HoverGrow } from "../components/animations"
 
 import { Box, Text } from "grommet"
 
@@ -42,12 +43,14 @@ const BlogPage = ({ data }) => {
           ))}
         </Box>
         <Box>
-          <Box height="small" width="medium">
-            <Img
-              fluid={data.lightbulb.childImageSharp.fluid}
-              imgStyle={{ objectFit: "contain" }}
-            />
-          </Box>
+          <HoverGrow>
+            <Box height="small" width="medium">
+              <Img
+                fluid={data.lightbulb.childImageSharp.fluid}
+                imgStyle={{ objectFit: "contain" }}
+              />
+            </Box>
+          </HoverGrow>
           <Box width="medium" pad="small" elevation="small" round="small">
             asdsafd
           </Box>

@@ -33,9 +33,10 @@ const AboutPage = () => {
   return (
     <Layout>
       <SEO title="About" />
-      <Box background="black">
+      <Box background="black" animation="fadeIn">
         <Mission />
       </Box>
+
       <TextImage
         flip
         background="white"

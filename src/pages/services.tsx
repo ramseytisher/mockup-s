@@ -76,7 +76,6 @@ const ServicesPage = () => {
           pad={{ vertical: "large" }}
           background="white"
           fill
-          gap="medium"
         >
           <ServiceCard
             title="Edu Services"
@@ -92,7 +91,7 @@ const ServicesPage = () => {
             }
           />
           <ServiceCard
-            title="Prt Services"
+            title="Bus Services"
             text="Etsy banjo poke williamsburg mustache cloud bread taiyaki pok pok
               art party seitan bitters you probably haven't heard of them vice."
             image={image.services.childImageSharp.fluid}
@@ -103,7 +102,17 @@ const ServicesPage = () => {
             }
           />
           <ServiceCard
-            title="Gen Services"
+            title="Web Services"
+            text="Etsy banjo poke williamsburg mustache cloud bread taiyaki pok pok"
+            image={image.services.childImageSharp.fluid}
+            button={
+              <Link to="/blog">
+                <Button>See this</Button>
+              </Link>
+            }
+          />
+          <ServiceCard
+            title="Idea Services"
             text="Etsy banjo poke williamsburg mustache cloud bread taiyaki pok pok"
             image={image.services.childImageSharp.fluid}
             button={
@@ -130,7 +139,7 @@ const ServicesPage = () => {
             <Button primary hoverIndicator label="Contact Us" />
           </Link>
         </Box>
-        <Box fill background="white" pad="medium">
+        {/* <Box fill background="white" pad="medium">
           <Tabs>
             <Tab title="Edu">
               <Box direction="row-responsive" justify="center">
@@ -142,7 +151,7 @@ const ServicesPage = () => {
             </Tab>
             <Tab title="Pro"></Tab>
           </Tabs>
-        </Box>
+        </Box> */}
         <Box fill background="white">
           <Contact />
         </Box>

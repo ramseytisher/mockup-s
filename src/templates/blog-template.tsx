@@ -8,6 +8,8 @@ import Layout from "../components/layout"
 
 const shortcodes = { Link }
 
+// a good one: https://cucumber.io/blog/bdd/example-mapping-introduction/
+
 export default ({ data: { mdx } }: any) => {
   return (
     <Layout>

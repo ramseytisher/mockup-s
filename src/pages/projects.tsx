@@ -1,12 +1,16 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 import Img from "gatsby-image"
+
 import Layout from "../components/layout"
 
 import { Box, Text } from "grommet"
 
 const ProjectsPage = ({ data }: any) => (
   <Layout>
+    <Box fill>
+      <Img fluid={data.image.childImageSharp.fluid} />
+    </Box>
     <Box background="white" fill align="center" pad="small">
       <Box
         elevation="medium"
@@ -33,7 +37,7 @@ const ProjectsPage = ({ data }: any) => (
       gap="small"
     >
       <Box gap="small" animation="fadeIn">
-        {data.allMdx.nodes.map(({ id, frontmatter, fields }: any) => (
+        {data.projects.nodes.map(({ id, frontmatter, fields }: any) => (
           <Box width="large" gap="small" pad="small" key={id}>
             <Text color="dark-3" size="small">
               {frontmatter.date}
@@ -67,7 +71,9 @@ export default ProjectsPage
 
 export const query = graphql`
   query {
-    allMdx(filter: { fileAbsolutePath: { regex: "/content/project/" } }) {
+    projects: allMdx(
+      filter: { fileAbsolutePath: { regex: "/content/project/" } }
+    ) {
       nodes {
         id
         frontmatter {
@@ -84,6 +90,13 @@ export const query = graphql`
         }
         fields {
           slug
+        }
+      }
+    }
+    image: file(relativePath: { eq: "lab-science.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 1280) {
+          ...GatsbyImageSharpFluid
         }
       }
     }

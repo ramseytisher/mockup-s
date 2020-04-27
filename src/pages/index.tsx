@@ -54,6 +54,61 @@ const IndexPage = () => {
         <MainHeading margin="none">we make it simple.</MainHeading>
       </Box>
       <Box
+        fill
+        background="white"
+        direction="row-responsive"
+        wrap
+        justify="center"
+        pad="medium"
+        gap="large"
+      >
+        <Box width="medium" justify="center" gap="small" pad="small">
+          <Heading level={5} margin="none">
+            {`Some heading`}
+          </Heading>
+          <Heading
+            level={3}
+            margin="none"
+          >{`Helping you design, establish, and achieve your goals`}</Heading>
+          <Text>
+            {`We specialize in Etsy banjo poke williamsburg mustache cloud bread taiyaki pok pok
+              art party seitan bitters you probably haven't heard of them vice.`}
+          </Text>
+          <Button color="brand" label="See Our Services" />
+        </Box>
+        <Grid
+          gap="small"
+          pad="large"
+          alignContent="start"
+          columns={{ count: 2, size: "auto" }}
+        >
+          <IconTitleCard
+            title="Title Ed"
+            text={`Etsy banjo poke  bread taiyaki pok pok
+              art party seitan  you probably haven't heard of them vice.`}
+            icon={<Deploy />}
+          />
+          <IconTitleCard
+            title="Title Bu"
+            text={`Etsy banjo poke  taiyaki pok pok
+              art party seitan heard of them vice.`}
+            icon={<Deploy />}
+          />
+          <IconTitleCard
+            title="Title We"
+            text={`williamsburg mustache cloud bread taiyaki pok pok
+              art party seitan bitters you probably haven't heard of them vice.`}
+            icon={<Deploy />}
+          />
+          <IconTitleCard
+            title="Title Id"
+            text={`Etsy banjo poke williamsburg mustache cloud bread taiyaki pok pok
+              art t heard of them vice.`}
+            icon={<Deploy />}
+          />
+        </Grid>
+      </Box>
+      <Box
         background="black"
         direction="row-responsive"
         gap="medium"
@@ -112,58 +167,6 @@ const IndexPage = () => {
             <Button>Link</Button>
           </Box>
         </Box>
-      </Box>
-      <Box
-        fill
-        background="white"
-        direction="row-responsive"
-        wrap
-        justify="center"
-        pad="medium"
-        gap="large"
-      >
-        <Box width="medium" justify="center" gap="small" pad="small">
-          <Heading level={3} margin="none">
-            Some heading
-          </Heading>
-          <Heading level={2} margin="none">Big Heading</Heading>
-          <Text>
-            {`Etsy banjo poke williamsburg mustache cloud bread taiyaki pok pok
-              art party seitan bitters you probably haven't heard of them vice.`}
-          </Text>
-          <Button color="brand" label="See Our Services" />
-        </Box>
-        <Grid
-          gap="small"
-          pad="large"
-          alignContent="start"
-          columns={{ count: 2, size: "auto" }}
-        >
-          <IconTitleCard
-            title="Something Title"
-            text={`Etsy banjo poke  bread taiyaki pok pok
-              art party seitan  you probably haven't heard of them vice.`}
-            icon={<Deploy />}
-          />
-          <IconTitleCard
-            title="Something Title"
-            text={`Etsy banjo poke  taiyaki pok pok
-              art party seitan heard of them vice.`}
-            icon={<Deploy />}
-          />
-          <IconTitleCard
-            title="Something Title"
-            text={`williamsburg mustache cloud bread taiyaki pok pok
-              art party seitan bitters you probably haven't heard of them vice.`}
-            icon={<Deploy />}
-          />
-          <IconTitleCard
-            title="Something Title"
-            text={`Etsy banjo poke williamsburg mustache cloud bread taiyaki pok pok
-              art t heard of them vice.`}
-            icon={<Deploy />}
-          />
-        </Grid>
       </Box>
       <Box
         align="center"
