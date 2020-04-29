@@ -51,7 +51,7 @@ const Layout = ({ children }: Props) => {
           align="center"
           justify="between"
           background="white"
-          pad={{ horizontal: "medium", vertical: "small" }}
+          pad={{ horizontal: "large", vertical: "small" }}
         >
           <NavHeading to="/">
             <Box width="small">
