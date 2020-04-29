@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import { useStaticQuery, graphql, Link } from "gatsby"
 
 import styled from "styled-components"
@@ -42,9 +42,6 @@ const Layout = ({ children }: Props) => {
       }
     }
   `)
-
-  const [showSidebar, setShowSidebar] = useState(false)
-  const [showLinks, setShowLinks] = useState(false)
 
   return (
     <Grommet theme={theme} full>

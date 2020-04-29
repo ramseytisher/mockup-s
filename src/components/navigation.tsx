@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { useStaticQuery, graphql, Link } from "gatsby"
+import { Link } from "gatsby"
 
 import styled from "styled-components"
 
@@ -12,7 +12,7 @@ const NavLink = styled(Link)`
   color: black;
 
   &:hover {
-    font-size: 1.15rem;
+    border-bottom: 5px solid orange;
   }
 `
 
@@ -63,26 +63,24 @@ const Navigation = () => {
             >
               <Box
                 direction="row-responsive"
+                wrap
                 align="center"
                 justify="center"
                 gap="small"
               >
-                <Box direction="row" gap="small">
-                  <NavLink to="/blog">
-                    [ Our Blog {<Article size="1.1em" />} ]
-                  </NavLink>
-                  <NavLink to="/the-lab">
-                    [ The Lab {<Test size="1.1em" />} ]
-                  </NavLink>
-                </Box>
-                <Box direction="row" gap="small">
-                  <NavLink to="/services">Services</NavLink>
-                  <NavLink to="/about">About</NavLink>
-                </Box>
+                <NavLink to="/blog">
+                  [ Our Blog {<Article size="1.1em" />} ]
+                </NavLink>
+                <NavLink to="/the-lab">
+                  [ The Lab {<Test size="1.1em" />} ]
+                </NavLink>
+
+                <NavLink to="/services">Services</NavLink>
+                <NavLink to="/about">About</NavLink>
               </Box>
-              <NavLink to="/contact">
+              <Link to="/contact">
                 <Button label="Contact Us" hoverIndicator primary />
-              </NavLink>
+              </Link>
             </Box>
           )
         }
