@@ -6,7 +6,7 @@ import { Box, Button, Footer } from "grommet"
 import { Twitter, Instagram, Github } from "grommet-icons"
 
 const SiteLink = styled(Link)`
-  font-family: "Bangers";
+  font-family: "Rokkitt";
   text-decoration: none;
   color: gray;
 `

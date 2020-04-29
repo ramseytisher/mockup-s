@@ -3,15 +3,16 @@ import { useStaticQuery, graphql, Link } from "gatsby"
 
 import styled from "styled-components"
 import Sitemap from "./sitemap"
+import Navigation from "./navigation"
 import Img from "gatsby-image"
 
-import { Grommet, ResponsiveContext, Button, Box, Grid, Heading } from "grommet"
-import { Menu, Close } from "grommet-icons"
+import { Grommet, Box } from "grommet"
 
 const theme = {
   global: {
     colors: {
       brand: "#228BE6",
+      "accent-1": "#F39237",
     },
     font: {
       family: "Ubuntu",
@@ -25,15 +26,6 @@ const NavHeading = styled(Link)`
   text-decoration: none;
 `
 
-const NavLink = styled(Link)`
-  text-decoration: none;
-  color: black;
-
-  &:hover {
-    font-size: 1.15rem;
-  }
-`
-
 interface Props {
   children: any
 }
@@ -43,7 +35,7 @@ const Layout = ({ children }: Props) => {
     query {
       logo: file(relativePath: { eq: "simple-logo.png" }) {
         childImageSharp {
-          fluid(maxHeight: 100) {
+          fluid(maxWidth: 400) {
             ...GatsbyImageSharpFluid
           }
         }
@@ -56,65 +48,26 @@ const Layout = ({ children }: Props) => {
 
   return (
     <Grommet theme={theme} full>
-      <ResponsiveContext.Consumer>
-        {size => (
-          <Box overflow="hidden" background="black">
-            <Box
-              gridArea="header"
-              direction="row"
-              align="center"
-              justify="between"
-              background="white"
-              pad={{ horizontal: "medium", vertical: "small" }}
-            >
-              <NavHeading to="/">
-                <Box width="small">
-                  <Img fluid={data.logo.childImageSharp.fluid} />
-                </Box>
-              </NavHeading>
-              {size === "small" ? (
-                <Button
-                  icon={showSidebar ? <Close /> : <Menu />}
-                  onClick={() => setShowSidebar(!showSidebar)}
-                />
-              ) : (
-                <Box direction="row" gap="medium" align="center">
-                  <NavLink to="/services">Services</NavLink>
-                  <NavLink to="/blog">Blog</NavLink>
-                  <NavLink to="/projects">Projects</NavLink>
-                  <NavLink to="/about">About</NavLink>
-                  <NavLink to="/contact">
-                    <Button label="Contact Us" hoverIndicator primary />
-                  </NavLink>
-                </Box>
-              )}
+      <Box overflow="hidden" background="black">
+        <Box
+          direction="row"
+          align="center"
+          justify="between"
+          background="white"
+          pad={{ horizontal: "medium", vertical: "small" }}
+        >
+          <NavHeading to="/">
+            <Box width="small">
+              <Img fluid={data.logo.childImageSharp.fluid} />
             </Box>
-            {showSidebar && (
-              <Box
-                gridArea="sidebar"
-                gap="large"
-                pad="small"
-                width="small"
-                style={{ zIndex: 100 }}
-                background="light-2"
-                align="center"
-              >
-                <NavLink to="/services">Services</NavLink>
-                <NavLink to="/blog">Blog</NavLink>
-                <NavLink to="/projects">Projects</NavLink>
-                <NavLink to="/about">About</NavLink>
-                <NavLink to="/contact">Contact</NavLink>
-              </Box>
-            )}
-            <Box gridArea="main" align="center">
-              {children}
-            </Box>
-            <Box gridArea="footer">
-              <Sitemap />
-            </Box>
-          </Box>
-        )}
-      </ResponsiveContext.Consumer>
+          </NavHeading>
+          <Navigation />
+        </Box>
+        <Box align="center">{children}</Box>
+        <Box>
+          <Sitemap />
+        </Box>
+      </Box>
     </Grommet>
   )
 }

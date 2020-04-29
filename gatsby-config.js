@@ -59,22 +59,10 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      resolve: `gatsby-plugin-google-fonts`,
       options: {
-        fonts: [
-          {
-            family: `Ubuntu`,
-          },
-          {
-            family: `Bangers`,
-          },
-          {
-            family: `Rajdhani`,
-          },
-          {
-            family: `VT323`,
-          },
-        ],
+        fonts: [`Ubuntu`, `Rokkitt`, `Rajdhani`, `VT323`],
+        display: `swap`,
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

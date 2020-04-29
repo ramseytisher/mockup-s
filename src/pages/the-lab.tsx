@@ -3,10 +3,11 @@ import { Link, graphql } from "gatsby"
 import Img from "gatsby-image"
 
 import Layout from "../components/layout"
+import ProjectDisplay from "../components/project-display"
 
 import { Box, Text } from "grommet"
 
-const ProjectsPage = ({ data }: any) => (
+const TheLabPage = ({ data }: any) => (
   <Layout>
     <Box fill>
       <Img fluid={data.image.childImageSharp.fluid} />
@@ -19,13 +20,7 @@ const ProjectsPage = ({ data }: any) => (
         background="black"
         round="small"
       >
-        <Text>
-          {`Trysail Barbary Coast wherry crow's nest lee hogshead grapple matey
-          fire ship bilged on her anchor. Mutiny tack snow matey marooned aft
-          chantey ye strike colors loaded to the gunwalls. Privateer Gold Road
-          lanyard heave to chase transom jury mast square-rigged loaded to the
-          gunwalls rutters.`}
-        </Text>
+        <ProjectDisplay />
       </Box>
     </Box>
     <Box
@@ -67,7 +62,7 @@ const ProjectsPage = ({ data }: any) => (
   </Layout>
 )
 
-export default ProjectsPage
+export default TheLabPage
 
 export const query = graphql`
   query {

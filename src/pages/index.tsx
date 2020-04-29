@@ -8,12 +8,13 @@ import IconTitleCard from "../components/icon-title-card"
 import SEO from "../components/seo"
 
 import Mission from "../components/mission"
+import ProjectDisplay from "../components/project-display"
 
 import { Box, Grid, Heading, Text, Button } from "grommet"
 import { Deploy } from "grommet-icons"
 
 const SiteLink = styled(Link)`
-  font-family: "Bangers";
+  font-family: "Rokkitt";
   text-decoration: none;
   color: gray;
 
@@ -107,6 +108,9 @@ const IndexPage = () => {
             icon={<Deploy />}
           />
         </Grid>
+      </Box>
+      <Box fill>
+        <ProjectDisplay />
       </Box>
       <Box
         background="black"
