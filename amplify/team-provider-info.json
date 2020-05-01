@@ -1,0 +1,15 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-mockups-dev-154447-authRole",
+            "UnauthRoleArn": "arn:aws:iam::208254545607:role/amplify-mockups-dev-154447-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::208254545607:role/amplify-mockups-dev-154447-authRole",
+            "Region": "us-east-2",
+            "DeploymentBucketName": "amplify-mockups-dev-154447-deployment",
+            "UnauthRoleName": "amplify-mockups-dev-154447-unauthRole",
+            "StackName": "amplify-mockups-dev-154447",
+            "StackId": "arn:aws:cloudformation:us-east-2:208254545607:stack/amplify-mockups-dev-154447/0f68dd90-8b1b-11ea-be8b-06d398e7edd6",
+            "AmplifyAppId": "d1t2narex4nfs5"
+        }
+    }
+}

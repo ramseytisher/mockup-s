@@ -1,0 +1,8 @@
+type Contact @model {
+  id: ID!
+  type: String!
+  email: String!
+  name: String!
+  contactList: Boolean!
+  message: String!
+}

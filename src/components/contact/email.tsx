@@ -3,10 +3,13 @@ import React, { ReactElement } from "react"
 import { Box, Button, Heading, Text } from "grommet"
 import { MailOption, Twitter, Instagram, Github } from "grommet-icons"
 
+import Form from "./form"
+
 interface Props {
   elevate?: boolean
 }
-export default ({ elevate }: Props) => (
+
+const ContactEmail = ({ elevate }: Props) => (
   <Box
     direction="row"
     width="large"
@@ -24,13 +27,9 @@ export default ({ elevate }: Props) => (
       </Text>
     </Box>
     <Box justify="center">
-      <Button
-        icon={<MailOption />}
-        plain
-        label="Email"
-        margin="small"
-        href="mailto:ramseytisher@gmail.com"
-      />
+      <Form />
     </Box>
   </Box>
 )
+
+export default ContactEmail

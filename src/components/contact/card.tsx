@@ -7,8 +7,11 @@ interface Props {
   detail?: React.Component
 }
 
-export default ({ text, detail }: Props) => {
+const ContactCard = ({ text, detail }: Props) => {
   const [showDetail, setShowDetail] = useState(false)
+
+  const openDetail = () => setShowDetail(true)
+  const closeDetail = () => setShowDetail(false)
 
   return (
     <Box
@@ -19,14 +22,14 @@ export default ({ text, detail }: Props) => {
       justify="center"
       elevation="small"
       round="xsmall"
-      onClick={() => setShowDetail(!showDetail)}
+      onClick={openDetail}
       hoverIndicator={{ color: "brand" }}
     >
       {text}
       {showDetail && (
         <Layer
-          onEsc={() => setShowDetail(false)}
-          onClickOutside={() => setShowDetail(false)}
+          onEsc={closeDetail}
+          onClickOutside={closeDetail}
           position="bottom-right"
           responsive={false}
         >
@@ -38,3 +41,5 @@ export default ({ text, detail }: Props) => {
     </Box>
   )
 }
+
+export default ContactCard
