@@ -11,22 +11,19 @@ interface Props {
 
 const ContactEmail = ({ elevate }: Props) => (
   <Box
-    direction="row"
     width="large"
     elevation={elevate && "small"}
     pad="large"
     gap="medium"
     justify="evenly"
   >
-    <Box>
-      <Heading level={3} margin="none">
-        Email Us
-      </Heading>
-      <Text margin="small">
-        Feel free to send us an email to get more information
-      </Text>
-    </Box>
-    <Box justify="center">
+    <Heading level={3} margin="none">
+      Email Us
+    </Heading>
+    <Text margin="small">
+      Feel free to send us an email to get more information
+    </Text>
+    <Box justify="center" width="large">
       <Form />
     </Box>
   </Box>
