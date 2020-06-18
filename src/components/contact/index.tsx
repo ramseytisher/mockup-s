@@ -1,8 +1,8 @@
 import React from "react"
 
-import Email from "./email"
 import Social from "./social"
 import ContactCard from "./card"
+import ContactForm from "./contact-form"
 
 import { Grid, Box, Heading } from "grommet"
 
@@ -19,13 +19,26 @@ const Contact = () => (
     >
       <ContactCard
         text="You want to see if we can help you"
-        detail={<Email />}
+        detail={
+          <ContactForm type="help" message={`Let's see how we can help`} />
+        }
       />
-      <ContactCard text="You have an idea for a project" />
+      <ContactCard
+        text="You have an idea for a project"
+        detail={<ContactForm type="idea" message={`We love new ideas!!`} />}
+      />
       <ContactCard text="You just want to follow us" detail={<Social />} />
-      <ContactCard text="You want to receive updates" />
+      <ContactCard
+        text="You want to email updates"
+        detail={
+          <ContactForm type="mailList" message={`Join our mailing list!`} />
+        }
+      />
       <ContactCard text="You just want to say Hi!" />
-      <ContactCard text="You are having trouble with our site" />
+      <ContactCard
+        text="You are having trouble with our site"
+        detail={<ContactForm type="support" message={`What's not working?`} />}
+      />
     </Grid>
   </Box>
 )

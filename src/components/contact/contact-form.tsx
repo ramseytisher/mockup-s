@@ -9,6 +9,7 @@ import {
   TextArea,
   Box,
   Button,
+  Heading,
 } from "grommet"
 import { MailOption, User } from "grommet-icons"
 
@@ -16,6 +17,7 @@ import { createContact as CreateContact } from "../../graphql/mutations.ts"
 
 interface Props {
   type?: string
+  message?: string
 }
 
 const defaultValues = {
@@ -24,7 +26,7 @@ const defaultValues = {
   message: "",
 }
 
-const ContactForm = ({ type }: Props) => {
+const ContactForm = ({ type, message }: Props) => {
   const [value, setValue] = useState(defaultValues)
   const [success, setSuccess] = useState(null)
   const [error, setError] = useState(null)
@@ -32,18 +34,27 @@ const ContactForm = ({ type }: Props) => {
   async function submitContact(event) {
     try {
       const contactInfo = {
-        type: "Message",
-        contactList: false,
+        type: type,
+        contactList: type === "mailList" ? true : false,
         ...event.value,
       }
 
       const createContact = await API.graphql(
         graphqlOperation(CreateContact, { input: contactInfo })
-      ).then(() => setSuccess(createContact))
+      )
+      setSuccess(createContact)
     } catch (error) {
       setError(`There was an error, please email us directly @`)
       console.log("error: ", error)
     }
+  }
+
+  if (success) {
+    return (
+      <Box>
+        {`${success.data.createContact.name}, we got your message and will be in touch!`}
+      </Box>
+    )
   }
 
   return (
@@ -53,6 +64,7 @@ const ContactForm = ({ type }: Props) => {
       onReset={() => setValue(defaultValues)}
       onSubmit={submitContact}
     >
+      {message && <Heading level={3}>{message}</Heading>}
       <FormField label="Name" name="name" required>
         <TextInput name="name" icon={<User size="small" />} reverse />
       </FormField>
@@ -77,7 +89,11 @@ const ContactForm = ({ type }: Props) => {
         <Button type="reset" label="Reset" />
         <Button type="submit" primary label="Send" />
       </Box>
-      {success && <Box>{success}</Box>}
+      {success && (
+        <Box>
+          <pre>{JSON.stringify(success, null, 2)}</pre>
+        </Box>
+      )}
       {error && <Box>{error}</Box>}
     </Form>
   )
